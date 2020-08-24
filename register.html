@@ -1,0 +1,43 @@
+<html>
+{% with success = get_flashed_messages(category_filter=["success"]) %}
+    {% if success %}
+        {%- for message in success %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span>{{ message }}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor -%}
+    {% endif %}
+{% endwith %}
+
+{% with success = get_flashed_messages(category_filter=["warning"]) %}
+    {% if success %}
+        {%- for message in success %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span>{{ message }}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor -%}
+    {% endif %}
+{% endwith %}
+    <head>
+        <h1>Registrati:</h1>
+    </head>
+
+    <body>
+        <form action='/register' method='POST' enctype="multipart/form-data" autocomplete="off">
+            Email: <input type='text' name='email' id='email' >
+            <br>
+            Username: <input type='text' name='username' id='username'>
+            <br>
+            Password: <input type='text' name='password' id='password' aria-label="Utilizza una password che non utilizzi per nessun altro sito!">
+            <br>
+            <input type='submit' value='Register'>
+        </form>    
+    </body>
+
+</html>
